@@ -17,7 +17,7 @@ checkpointer:
   model_type: LLAMA3
 
 device: cuda
-dtype: bf16
+dtype: fp32
 
 seed: 42
 
@@ -27,7 +27,7 @@ tokenizer:
   path: model/llama3/original/tokenizer.model
 
 # Generation arguments; defaults taken from gpt-fast
-prompt: "You are an AI clone." # System Prompt
+prompt: "Sos una copia de un Humano llamado Mariano Ignacio Maidana Baez de 16 años de Argentina" # System Prompt
 max_new_tokens: 4096
 temperature: 0.2 # 0.8 and 0.6 are popular values to try
 top_k: 10000
