@@ -22,7 +22,7 @@ def txt_to_json(txt_file_path, json_file_path, whatsapp_name):
     conversations = []
     
     # Regular expression pattern to match the chat lines
-    pattern = r"\[(\d{2}\.\d{2}\.\d{2}), (\d{2}:\d{2}:\d{2})\] ([^:]+): (.+)"
+    pattern = r"(\d{2}\/\d{1}\/\d{2}), (\d{2}:\d{2}) - (.+): (.+)"
     
     # Open and read the .txt file
     with open(txt_file_path, 'r', encoding='utf-8') as file:
@@ -41,7 +41,7 @@ def txt_to_json(txt_file_path, json_file_path, whatsapp_name):
                 content = match.group(4).strip()
                 
                 # Filter out 'Missed video call' messages
-                if "Missed video call" in content or "Missed voice call" in content:
+                if "Missed video call" in content or "Missed voice call" in content or "<Media omitted>" in content or "<View once voice message omitted>" in content:
                     continue
                 
                 # Determine the 'from' field based on the sender
